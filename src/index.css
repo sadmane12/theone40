@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --container-7xl: 86rem;
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-body: 'Jost', 'Helvetica Neue', sans-serif;
+  --font-editorial: 'Cormorant Garamond', 'Georgia', serif;
+  --color-void: #060608;
+  --color-ink: #0a0a0c;
+  --color-charcoal: #111118;
+  --color-stone: #16161f;
+  --color-graphite: #1e1e2a;
+  --color-gold: #c9a84c;
+  --color-gold-dim: #8a7030;
+  --color-gold-bright: #e6c878;
+  --color-cream: #f5f0e6;
+  --color-ivory: #edeae0;
+  --color-fog: #b8b0a4;
+  --color-dusk: #6e6658;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-cream);
+  font-family: 'Jost', sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(201, 168, 76, 0.25);
+  color: var(--color-cream);
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.text-gold-gradient {
+  background: linear-gradient(90deg, var(--color-gold-dim), var(--color-gold), var(--color-gold-bright), var(--color-gold), var(--color-gold-dim));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+.gold-rule {
+  background: linear-gradient(90deg, transparent, var(--color-gold-dim) 20%, var(--color-gold) 50%, var(--color-gold-dim) 80%, transparent);
+  height: 1px;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slowPan {
+  from { transform: scale(1.06) translate3d(-1.2%, 0, 0); }
+  to { transform: scale(1.12) translate3d(1.2%, -1.4%, 0); }
+}
+
+/* chamfered corner — house signature for icon & crest plates */
+.chamfer {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 11px), calc(100% - 11px) 100%, 0 100%);
+}
+
+.chamfer-sm {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%);
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: -20; }
+}
+
+/* Club crests always render in their true official colours on the dark plates. */
+.logo-dark-plate img {
+  mix-blend-mode: normal;
+}
+
+@keyframes pinPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.55); }
+  70% { box-shadow: 0 0 0 12px rgba(201,168,76,0); }
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes lineGrow {
+  from { width: 0; }
+  to { width: 100%; }
+}

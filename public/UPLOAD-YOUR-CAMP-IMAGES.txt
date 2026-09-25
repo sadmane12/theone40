@@ -1,0 +1,16 @@
+Your requested camp images are wired into the website.
+
+When uploading the site to Hostinger, place these files in public_html/
+(the same folder as index.html):
+
+  marca.jpg  = Camp Nou "SOM UN EQUIP!" mosaic (Barcelona & Marbella)
+  anta.jpg   = Antalya football / coast image
+  por.jpg    = Algarve Portugal coastline image
+  bled.jpg   = Lake Bled football training image
+  hero.jpg   = Night stadium / goal image (Methodology section)
+  england-scotland.jpg = England & Scotland camp image
+
+PNG files also work: use marca.png, anta.png, por.png, bled.png, hero.png.
+
+The website prioritizes these files automatically. If a file is not present,
+it uses a high-quality fallback image instead.
